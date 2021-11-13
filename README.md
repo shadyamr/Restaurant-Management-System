@@ -1,7 +1,7 @@
 # Restaurant Management System
 RMS Application - Java
 
-This is our team project for CSC240/SWE211 - Object Oriented Programming [Fall 2021]. A system that makes reservations to a restaurant. The customer can select a restaurant based on a specific location. Once the customer chooses a certain restaurant, he can reserve a table.
+This is our team project for Fall 2021 - CSC240/SWE211 - Object Oriented Programming. A system that makes reservations to a restaurant. The customer can select a restaurant based on a specific location. Once the customer chooses a certain restaurant, he can reserve a table.
 
 # Progress
 * [x] Diagram
