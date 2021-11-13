@@ -1,12 +1,13 @@
 # Restaurant Management System
 RMS Application - Java
 
-This is our team project for Fall 2021 - CSC240/SWE211 - Object Oriented Programming. A system that makes reservations to a restaurant. The customer can select a restaurant based on a specific location. Once the customer chooses a certain restaurant, he can reserve a table.
+This is our team's project for Fall 2021 - CSC240/SWE211 - Object Oriented Programming. This is a system that has various features for both customers and the owner. The owner has a lot of abilities, like editing the menu, adding employees and tables. The customer can reserve a table at a specific time using the system and can then choose one of the three main branches according to the location they desire. Once the customer chooses a branch, he's redirected to choosing his main courses of food.
 
 # Progress
 * [x] Diagram
 * [x] File System
 * [x] Branches
+* [x] Menu
 
 # Modules
    - **Owner module:**
