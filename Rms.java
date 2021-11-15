@@ -1,6 +1,6 @@
 package rms;
 
-import java.io.*;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Rms {
@@ -11,40 +11,35 @@ public class Rms {
         owner s2 = new owner();
         branches test = new branches();
         menu test2 = new menu();
+        owner test3 = new owner();
         s1.createfile();
-
         System.out.print("** Welcome to Restaurant Management System! **\n"
                 + "** Please input a number for access type. (1 = owner, 2 = customer, 3 = waiter)\n"
                 + "* Access Type: ");
         int access_type = cin.nextInt();
+        cin.nextLine();
+        System.out.print("Enter your username and password.\n"
+                + "Enter your login details.\n"
+                + "* Username: ");
+        String username = cin.nextLine();
+        System.out.print("* Password: ");
+        String password = cin.nextLine();
+        s1.writefile(username, password);
         if (access_type == 1) {
-            System.out.println("press 1 to enter new username and password");
-            System.out.println("press 2 to delete all the file");
-            System.out.println("press 3 to delete one account");
+            System.out.println("Press 1 to edit the restaurant's system.");
+            System.out.println("Press 2 to delete an account.");
             int pick = cin.nextInt();
-            cin.nextLine();
             if (pick == 1) {
-                System.out.print("** Enter your login details.\n"
-                        + "* Username: ");
-                String username = cin.nextLine();
-                System.out.print("* Password: ");
-                String password = cin.nextLine();
-
-                s1.writefile(username, password);
-                s2.readfile();
+            test3.chooseOption();
             } else if (pick == 2) {
-                test.chooseBranch();
-                test2.orderFood();
-            } else if (pick == 3) {
                 owner fileSearch = new owner();
-                System.out.println("enter the username to be deleted:");
+                System.out.println("Enter the username to be deleted:");
                 String userdelete = cin.nextLine();
-                fileSearch.parseFile("D:\\study\\work\\oop\\project.txt", userdelete);
+                fileSearch.parseFile("D:\\MIU Courses\\Object Oriented Programming\\project.txt", userdelete);
+            } else if (access_type == 2) {
+
             }
-        } else if (access_type == 2) {
-
         }
-    }
-
+    
 }
-
+}
