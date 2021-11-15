@@ -10,13 +10,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
-public class owner {
+public class owner{
+branches testing = new branches(); //Testing the methods
+menu testing2 = new menu();
+    Scanner scan = new Scanner(System.in);
 
     public void readfile() {
         try {
             String strcurrentline;
             //File myobj = new File("D:\\study\\work\\oop\\project.txt");
-            BufferedReader myobj = new BufferedReader(new FileReader("D:\\study\\work\\oop\\project.txt"));
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\project.txt"));
             try (Scanner myreader = new Scanner(myobj)) {
                 while ((strcurrentline = myobj.readLine()) != null) {
 
@@ -34,7 +37,7 @@ public class owner {
         }
     }
 
-    public void parseFile(String fileName, String searchStr) throws FileNotFoundException {
+    public void parseFile(String fileName, String searchStr) throws FileNotFoundException { //Search
         Scanner scan = new Scanner(new File(fileName));
         while (scan.hasNext()) {
             String line = scan.nextLine().toLowerCase();
@@ -45,7 +48,7 @@ public class owner {
     }
 
     public void deletefile(int choose) {
-        File myobj = new File("D:\\study\\work\\oop\\project.txt");
+        File myobj = new File("D:\\MIU Courses\\Object Oriented Programming\\project.txt");
         if (choose == 1) {//handle the error if the user enters letter not a number
             if (myobj.delete()) {
                 System.out.println(myobj.getName() + ":file is deleted successfully");
@@ -58,10 +61,31 @@ public class owner {
     }
 
     public String delete(String username, String password) {
-        File myobj = new File("D:\\study\\work\\oop\\project.txt");
+        File myobj = new File("D:\\MIU Courses\\Object Oriented Programming\\project.txt");
         username = "";
         password = "";
         return null;
     }
 
+    public void chooseOption() {
+        System.out.println("Please pick what do you want to modify.\n"
+                + "1 - Branches\n"
+                + "2 - Menu\n"
+                + "3 - Employees\n");
+        int x;
+        x = scan.nextInt();
+        if(x==1){
+                System.out.println("1 - Add a new branch.\n"
+                        +"2 - Edit a branch.\n"
+                        +"3 - Remove a branch.\n");
+                int BranchChoice = scan.nextInt();
+                testing.addBranch();
+                testing.writefile();
+        } else if (x==2){
+        testing2.orderFood();
+        } else if(x==3){
+        
+        }
+    }
+;
 }
