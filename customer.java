@@ -7,8 +7,9 @@ public class customer
     protected String customer_name;
     protected long ph_numb;
     Scanner cin = new Scanner(System.in);
-    menu Menuo = new menu();
+    menu Menu = new menu();
     paymentMethod payment = new paymentMethod();
+    tables tablereserve = new tables();
     public void customerChoose()
     {
         String screenmsg_x = "\n*** Customer Section: ***\n"
@@ -18,29 +19,13 @@ public class customer
         customer_name = cin.nextLine();
         System.out.print("* Phone Number: ");
         ph_numb = cin.nextLong();
-        
-        String screenmsg_y = "\n*** Customer Section (" + customer_name + " - 0" + ph_numb + "): ***\n"
-                + "To select an option, enter:\n"
-                + "* 1: Reservation\n"
-                + "* 2: Order Food";
-        System.out.println(screenmsg_y);
-        int productid = cin.nextInt();
-        switch(productid)
-        {
-            case 1:
-                System.out.println("Reservation!");
+        System.out.println("*** Customer Section (" + customer_name + " - 0" + ph_numb + "): ***\n");
+                System.out.println("- Reservation Process -");
                 branching.showAddedBranches();
                 branching.chooseBranch();
-                break;
-            case 2:
-                Menuo.orderFood();
+                Menu.defineMaps();
+                Menu.orderFood();
                 payment.paymentMethod();
-                break;
-            default:
-                System.out.println("Error! Please try again.");
-                break;
+                tablereserve.reserveTable();
         }
     }
-    
-
-}
