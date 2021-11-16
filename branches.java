@@ -15,6 +15,7 @@ public class branches {
     protected String choosenBranch;
     protected boolean check = true;
     protected ArrayList<String> branchesNames = new ArrayList<>(Arrays.asList("El-Nozha", "El-Maady", "Masr El-Gdeda"));
+
     public branches() {
         this.choosenBranchName = 0;
     }
@@ -46,8 +47,17 @@ public class branches {
         branchesNames.add(x);
     }
 
-    public void writemenu() {
-        try {
+    public void showbranches(){
+        int y = 1;
+    System.out.println("The current branches are: ");  
+        for (int i = 0; i < branchesNames.size(); i++) {  
+            System.out.println(y + " - " + branchesNames.get(i) + "\n");
+            y++;
+        }  
+    }
+    
+    public void writeBranches() {
+    try {
             try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt")) {
                 {
                     for (int i = 0; i < branchesNames.size(); i++) {
@@ -62,7 +72,7 @@ public class branches {
         }
     }
 
-    public void readmenu() {
+    public void readBranches() {
         try {
             BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\branches.txt"));
             try (Scanner myreader = new Scanner(myobj)) {
@@ -73,7 +83,7 @@ public class branches {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("an error occured");
+            System.out.println("An error occured");
         }
     }
 }
