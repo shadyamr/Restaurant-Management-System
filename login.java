@@ -6,14 +6,13 @@ import java.util.*;
 public class login {
 
     //private static String username, password;
-
     public login() {
 
     }
 
     public void createfile() {
         try {
-            File file = new File("C:\\Users\\PC\\Desktop\\project.txt");
+            File file = new File("D:\\MIU Courses\\Object Oriented Programming/admin.txt");
             if (file.createNewFile()) {
                 System.out.println("New File is created!");
             } else {
@@ -27,7 +26,7 @@ public class login {
 
     public void writefile(String username, String password) {
         try {
-            try (FileWriter mywrite = new FileWriter("C:\\Users\\PC\\Desktop\\project.txt", true)) {
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming/admin.txt", true)) {
                 mywrite.write(username);
                 mywrite.write(password);
             }
@@ -38,7 +37,7 @@ public class login {
     }
 
     public boolean searchusername(String username) throws FileNotFoundException {
-        File file = new File("C:\\Users\\PC\\Desktop\\project.txt");
+        File file = new File("D:\\MIU Courses\\Object Oriented Programming/admin.txt");
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             final String lineFromFile = scanner.nextLine();
@@ -50,7 +49,7 @@ public class login {
     }
 
     public boolean searchpassword(String password) throws FileNotFoundException {
-        File file = new File("C:\\Users\\PC\\Desktop\\project.txt");
+        File file = new File("D:\\MIU Courses\\Object Oriented Programming/admin.txt");
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             final String lineFromFile = scanner.nextLine();
@@ -60,7 +59,7 @@ public class login {
         }
         return false;
     }
-/*
+    /*
     public void setusername(String username) {
         login.username = username;
     }
@@ -76,5 +75,5 @@ public class login {
     public String getpassword() {
         return password;
     }
-*/
+     */
 }
