@@ -68,7 +68,7 @@ public class owner {
         return null;
     }
 
-    public void chooseOption() throws FileNotFoundException {
+    public void chooseOption() throws FileNotFoundException, IOException {
         System.out.println("Please pick what do you want to modify.\n"
                 + "1 - Branches\n"
                 + "2 - Menu\n"
@@ -102,26 +102,34 @@ public class owner {
                     + "4 - Remove a menu item.\n");
             MenuChoice = scan.nextInt();
             if (MenuChoice == 1) {
-                //testing2.writeAddedMainItems();
                 testing2.defineMaps();
-                //testing2.writeAddedMainItems();
-                //testing2.showAddedMenuItems();
+                testing2.showAddedMainItems();
+                testing2.showAddedSideItems();
+                testing2.showAddedDrinkItems();
+                testing2.showAddedDessertItems();
             } else if (MenuChoice == 2) {
                 System.out.println("What course do you want to add a menu item to?");
                 int coursechoice;
-                System.out.println("1- Main course.\n"
+                System.out.println("1- Main items.\n"
                         + "2 - Side items.\n"
                         + "3 - Drink items.\n"
                         + "4 - Dessert items.\n");
                 coursechoice = scan.nextInt();
-                if (coursechoice == 1) {                   
-                    testing2.defineMaps();
-                    testing2.AddMainToMenu();
+                switch (coursechoice) {
+                    case 1:
+                        testing2.AddMainToMenu();
+                        break;
+                    case 2:
+                        testing2.AddSideToMenu();
+                        break;
+                    case 3:
+                        testing2.AddDrinkToMenu();
+                        break;
+                    case 4:
+                        testing2.AddDessertToMenu();
+                    default:
+                        break;
                 }
-                //testing2.AddItemToMenu();
-                //testing2.writeAddedMenuItems();
-                //testing2.readAddedMenuItems();
-                //testing2.showAddedMenuItems();
             }
         } else if (x == 3) {
 
