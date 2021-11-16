@@ -21,7 +21,8 @@ public class menu {
     protected ArrayList<String> Side = new ArrayList<>();
     protected ArrayList<String> Drinks = new ArrayList<>();
     protected ArrayList<String> Dessert = new ArrayList<>();
-
+tables tableinfo = new tables();
+protected String tabletext;
     protected HashMap<String, Integer> MainItems = new HashMap<>();
     protected HashMap<String, Integer> SideItems = new HashMap<>();
     protected HashMap<String, Integer> DrinkItems = new HashMap<>();
@@ -294,5 +295,23 @@ public class menu {
             System.out.println("an error occured");
         }
     }
-
+public void WriteTheOrder() {
+    if(tableinfo.tablechoice==1){
+        tabletext = "Yes";
+        } else tabletext = "No";
+try {
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\order.txt",true)) {
+                {
+                 mywrite.write("Main dish: " + choosenMain + "\n"
+                         + "Side dish: " + choosenSide + "\n"
+                         + "Drink: " + choosenDrink + "\n"
+                         + "Dessert: " + choosenDessert + "\n"
+                         +"Smokers Table: " + tabletext + "\n");
+                }
+                mywrite.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("An error occurred.");
+        }
+    }
 }
