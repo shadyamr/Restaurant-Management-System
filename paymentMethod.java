@@ -1,13 +1,14 @@
 package rms;
 import java.io.*;
 import java.util.*;
+import java.math.*;
 public class paymentMethod 
 {
     protected long card_number;
     protected int cvv;
     protected boolean cvv_check = true;
     protected String exp_date;
-    Scanner cin = new Scanner(System.in);
+    Scanner cin = new Scanner(System.in); 
     public int convertIntegerToDigit(int x)
     {
         int count = 0;
@@ -36,7 +37,7 @@ public class paymentMethod
                 System.out.println("** Add Card");
                 System.out.print("* Card Number: ");
                 card_number = cin.nextLong();
-                cin.nextLine();
+                cin.nextLine();                
                 System.out.print("* Exp. Date (MM/YY): ");
                 exp_date = cin.nextLine();
                 System.out.print("* CVV: ");                
