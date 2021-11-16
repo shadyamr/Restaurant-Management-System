@@ -19,7 +19,6 @@ public class owner {
     public void readfile() {
         try {
             String strcurrentline;
-            //File myobj = new File("D:\\study\\work\\oop\\project.txt");
             BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\project.txt"));
             try (Scanner myreader = new Scanner(myobj)) {
                 while ((strcurrentline = myobj.readLine()) != null) {
