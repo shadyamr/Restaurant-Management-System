@@ -20,7 +20,7 @@ public class customer
         ph_numb = cin.nextLong();
         
         String screenmsg_y = "\n*** Customer Section (" + customer_name + " - 0" + ph_numb + "): ***\n"
-                + "To select an item, enter:\n"
+                + "To select an option, enter:\n"
                 + "* 1: Reservation\n"
                 + "* 2: Order Food";
         System.out.println(screenmsg_y);
