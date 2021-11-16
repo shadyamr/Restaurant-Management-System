@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 public class customer
 {
+    branches branching = new branches();
     protected String customer_name;
     protected long ph_numb;
     Scanner cin = new Scanner(System.in);
@@ -28,6 +29,8 @@ public class customer
         {
             case 1:
                 System.out.println("Reservation!");
+                branching.showAddedBranches();
+                branching.chooseBranch();
                 break;
             case 2:
                 Menuo.orderFood();
