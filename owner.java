@@ -75,14 +75,17 @@ menu testing2 = new menu();
         int x;
         x = scan.nextInt();
         if(x==1){
-                System.out.println("1 - Add a new branch.\n"
-                        +"2 - Edit a branch.\n"
-                        +"3 - Remove a branch.\n");
+                System.out.println("1- Check the current branches.\n"
+                        +"2 - Add a new branch.\n"
+                        +"3 - Edit a branch.\n"
+                        +"4 - Remove a branch.\n");
                 int BranchChoice = scan.nextInt();
                 if(BranchChoice == 1){
+                testing.writeBranches();
+                testing.showbranches();
+                } else if (BranchChoice == 2){
                 testing.addBranch();
-                testing.readmenu();
-                testing.writemenu();
+                testing.readBranches();
                 } else if (BranchChoice == 2){
                 
                 }
