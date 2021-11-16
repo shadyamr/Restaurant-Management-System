@@ -12,11 +12,10 @@ import java.util.*;
 public class menu {
 
     Scanner scan = new Scanner(System.in);
-    protected int choosenAppetizerNum;
-    protected int choosenMainNum;
-    protected int choosenSideNum;
-    protected int choosenDrinkNum;
-    protected int choosenDessertNum;
+    protected String choosenMain;
+    protected String choosenSide;
+    protected String choosenDrink;
+    protected String choosenDessert;
     protected boolean check = true;
     protected ArrayList<String> Main = new ArrayList<>();
     protected ArrayList<String> Side = new ArrayList<>();
@@ -51,50 +50,24 @@ public class menu {
     }
 
     public void orderFood() {
-        System.out.println("Please choose your main-dish!\n"
+        System.out.println("Please choose your main-dish! Write only ONE choice per course!\n"
                 + "MAIN DISHES\n"
                 + "1 for our " + MainItems.entrySet() + "\n");
-        do {
-            check = true;
-            choosenMainNum = scan.nextInt();
-            if (choosenMainNum > 5) {
-                check = false;
-                System.out.println("Invalid option, please enter a valid one!");
-            }
-        } while (!check);
+        choosenMain = scan.nextLine();
         System.out.println("Please choose your side-dish!\n"
                 + "SIDE DISHES\n"
                 + "1 for our " + SideItems.entrySet() + "\n");
-        do {
-            check = true;
-            choosenSideNum = scan.nextInt();
-            if (choosenSideNum > 5) {
-                check = false;
-                System.out.println("Invalid option, please enter a valid one!");
-            }
-        } while (!check);
+        choosenSide = scan.nextLine();
         System.out.println("Please choose your drink!\n"
                 + "DRINKS\n"
                 + "1 for our " + DrinkItems.entrySet() + "\n");
-        do {
-            check = true;
-            choosenDrinkNum = scan.nextInt();
-            if (choosenSideNum > 5) {
-                check = false;
-                System.out.println("Invalid option, please enter a valid one!");
-            }
-        } while (!check);
+        choosenDrink = scan.nextLine();
+
         System.out.println("Please choose your dessert!\n"
-                + "DRINKS\n"
+                + "DESSERTS!\n"
                 + "1 for our " + DessertItems.entrySet() + "\n");
-        do {
-            check = true;
-            choosenDessertNum = scan.nextInt();
-            if (choosenSideNum > 5) {
-                check = false;
-                System.out.println("Invalid option, please enter a valid one!");
-            }
-        } while (!check);
+        choosenDessert = scan.nextLine();
+        System.out.println("Thanks for ordering, the price of the ordered items = " + (MainItems.get(choosenMain) + SideItems.get(choosenSide) + DrinkItems.get(choosenDrink) + DessertItems.get(choosenDessert)) + "\n");
     }
 
     public void AddMainToMenu() throws IOException {
@@ -241,7 +214,7 @@ public class menu {
             }
         }
     }
-    
+
     public void showAddedMainItems() {
         try {
             String strcurrentline;
@@ -302,7 +275,7 @@ public class menu {
         }
     }
 
-public void showAddedDessertItems() {
+    public void showAddedDessertItems() {
         try {
             String strcurrentline;
             BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\dessertitems.txt"));
@@ -320,7 +293,6 @@ public void showAddedDessertItems() {
         } catch (IOException e) {
             System.out.println("an error occured");
         }
-    }    
-    
-    
+    }
+
 }
