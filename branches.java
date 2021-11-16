@@ -34,7 +34,7 @@ public class branches {
         do {
             check = true;
             choosenBranchName = scan.nextInt();
-            if (choosenBranchName > AddedBranchesNames.size()) {
+            if (choosenBranchName > 100) {
                 check = false;
                 System.out.println("Invalid option, please enter a valid one!");
             }
