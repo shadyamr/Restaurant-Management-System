@@ -14,8 +14,9 @@ public class branches {
     protected int choosenBranchName;
     protected String choosenBranch;
     protected boolean check = true;
-    protected ArrayList<String> branchesNames = new ArrayList<>(Arrays.asList("El-Nozha", "El-Maady", "Masr El-Gdeda"));
-
+    protected ArrayList<String> branchesNames = new ArrayList<>(Arrays.asList("El-Nozha", "El-Maady", "Madinet-Nasr"));
+    protected ArrayList<String> AddedBranchesNames = new ArrayList<>();
+    protected double CombinedSizes = branchesNames.size() + AddedBranchesNames.size();
     public branches() {
         this.choosenBranchName = 0;
     }
@@ -44,21 +45,25 @@ public class branches {
         System.out.println("Enter the name of the new branch you want to add.\n");
         String x;
         x = scan.nextLine();
-        branchesNames.add(x);
+        AddedBranchesNames.add(x);
     }
 
-    public void showbranches(){
-        int y = 1;
-    System.out.println("The current branches are: ");  
-        for (int i = 0; i < branchesNames.size(); i++) {  
+    public void showbranches() {
+        int y = 1,z = 1;
+        System.out.println("The current branches are: ");
+        for (int i = 0; i < CombinedSizes; i++) {
             System.out.println(y + " - " + branchesNames.get(i) + "\n");
             y++;
-        }  
+        }
+        /*for (int i = 0; i < AddedBranchesNames.size(); i++) {
+            System.out.println(y + " - " + AddedBranchesNames.get(i) + "\n");
+            y++;
+        }*/
     }
-    
-    public void writeBranches() {
-    try {
-            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt")) {
+
+    public void writeinitialBranches() {
+try {
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt",true)) {
                 {
                     for (int i = 0; i < branchesNames.size(); i++) {
                         mywrite.write(branchesNames.get(i) + "\n");
@@ -83,7 +88,39 @@ public class branches {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("An error occured");
+            System.out.println("an error occured");
+        }
+}
+    
+    public void writeAddedBranches() {
+try {
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt",true)) {
+                {
+                    for (int i = 0; i < AddedBranchesNames.size(); i++) {
+                        mywrite.write(AddedBranchesNames.get(i) + "\n");
+                    }
+                }
+                mywrite.close();
+            }
+        } catch (IOException ex) {
+            System.out.println("An error occurred.");
+            ex.printStackTrace();
         }
     }
+    
+    public void readAddedBranches() {
+        try {
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\branches.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while (myreader.hasNext()) {
+                    AddedBranchesNames.add(myreader.next());
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("an error occured");
+        }
+}
+    
 }
