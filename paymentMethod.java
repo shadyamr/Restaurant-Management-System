@@ -2,8 +2,7 @@ package rms;
 import java.io.*;
 import java.util.*;
 import java.math.*;
-public class paymentMethod 
-{
+public class paymentMethod{
     protected long card_number;
     protected int cvv;
     protected boolean cvv_check = true;
@@ -29,8 +28,7 @@ public class paymentMethod
         switch (default_payment) 
         {
             case 1:
-                String cashmsg = "Please pay at the counter.\n"
-                        + "Total price: [[TO BE ADDED]]";
+                String cashmsg = "A waiter will collect your payment!\n";
                 System.out.println(cashmsg);
                 break;
             case 2:
