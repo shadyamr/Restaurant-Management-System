@@ -19,7 +19,7 @@ menu testing2 = new menu();
         try {
             String strcurrentline;
             //File myobj = new File("D:\\study\\work\\oop\\project.txt");
-            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\project.txt"));
+            BufferedReader myobj = new BufferedReader(new FileReader("C:\\Users\\PC\\Desktop\\project.txt"));
             try (Scanner myreader = new Scanner(myobj)) {
                 while ((strcurrentline = myobj.readLine()) != null) {
 
@@ -48,7 +48,7 @@ menu testing2 = new menu();
     }
 
     public void deletefile(int choose) {
-        File myobj = new File("D:\\MIU Courses\\Object Oriented Programming\\project.txt");
+        File myobj = new File("C:\\Users\\PC\\Desktop\\project.txt");
         if (choose == 1) {//handle the error if the user enters letter not a number
             if (myobj.delete()) {
                 System.out.println(myobj.getName() + ":file is deleted successfully");
@@ -61,7 +61,7 @@ menu testing2 = new menu();
     }
 
     public String delete(String username, String password) {
-        File myobj = new File("D:\\MIU Courses\\Object Oriented Programming\\project.txt");
+        File myobj = new File("C:\\Users\\PC\\Desktop\\project.txt");
         username = "";
         password = "";
         return null;

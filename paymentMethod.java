@@ -6,7 +6,6 @@ public class paymentMethod
     protected long card_number;
     protected int cvv;
     protected String exp_date;
-    protected int numDigitss;
     Scanner cin = new Scanner(System.in);
     public void paymentMethod() 
     {
