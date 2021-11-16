@@ -1,5 +1,7 @@
 package rms;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +15,6 @@ public class branches {
     protected String choosenBranch;
     protected boolean check = true;
     protected ArrayList<String> branchesNames = new ArrayList<>(Arrays.asList("El-Nozha", "El-Maady", "Masr El-Gdeda"));
-
     public branches() {
         this.choosenBranchName = 0;
     }
@@ -45,18 +46,34 @@ public class branches {
         branchesNames.add(x);
     }
 
-    public void writefile() {
+    public void writemenu() {
         try {
-            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt", true)) {
-                {                 for (int i = 0; i < branchesNames.size(); i++) {
-            mywrite.write(branchesNames.get(i)+ "\n");
-        }                    
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt")) {
+                {
+                    for (int i = 0; i < branchesNames.size(); i++) {
+                        mywrite.write(branchesNames.get(i) + "\n");
+                    }
                 }
                 mywrite.close();
             }
         } catch (IOException ex) {
             System.out.println("An error occurred.");
             ex.printStackTrace();
+        }
+    }
+
+    public void readmenu() {
+        try {
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\branches.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while (myreader.hasNext()) {
+                    branchesNames.add(myreader.next());
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("an error occured");
         }
     }
 }
