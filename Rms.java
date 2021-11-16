@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 public class Rms 
 {
-    public static void main(String[] args) throws FileNotFoundException 
+    public static void main(String[] args) throws FileNotFoundException, IOException 
     {
         Scanner cin = new Scanner(System.in);
         login s1 = new login();
