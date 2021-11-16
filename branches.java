@@ -69,22 +69,6 @@ public class branches {
         }
     }
 
-    /*public void writeinitialBranches() {
-try {
-            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt",true)) {
-                {
-                    for (int i = 0; i < AddedBranchesNames.size(); i++) {
-                        mywrite.write(AddedBranchesNames.get(i) + "\n");
-                    }
-                }
-                mywrite.close();
-            }
-        } catch (IOException ex) {
-            System.out.println("An error occurred.");
-            ex.printStackTrace();
-        }
-    }*/
-
     public void readBranches() {
         try {
             BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\branches.txt"));
