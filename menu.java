@@ -1,5 +1,12 @@
 package rms;
 
+import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class menu {
@@ -16,60 +23,41 @@ public class menu {
     protected int choosenDrinkNum;
     protected int choosenDessertNum;
     protected boolean check = true;
-    protected String[] appetizers = new String[]{"Tahini", "Sambousek", "Hummus", "Baba Ghanoush", "Torshi"};
-    protected String[] main = new String[]{"Shawarma", "Molokhiya", "Fatta", "Kebda", "Hawawshi"};
-    protected String[] side = new String[]{"Salad", "Tameeya", "Bread", "Soup", "Fries"};
-    protected String[] drink = new String[]{"Pepsi", "Seven-up", "Fanta", "Tea", "Coffee"};
-    protected String[] dessert = new String[]{"Baqlawa", "Basboosa", "Balah El-Sham", "Kunafa","Om-Ali"};
-
-    public void orderFood() {
-        System.out.println("Please choose your appetizer!\n"
-                + "APPETIZERS\n"
-                + "1 for our " + appetizers[0] + "\n"
-                + "2 for our " + appetizers[1] + "\n"
-                + "3 for our " + appetizers[2] + "\n"
-                + "4 for our " + appetizers[3] + "\n"
-                + "5 for our " + appetizers[4] + "\n");
-        do {
-            check = true;
-            choosenAppetizerNum = scan.nextInt();
-            if (choosenAppetizerNum > 5) {
-                check = false;
-                System.out.println("Invalid option, please enter a valid one!");
-            }
-            switch (choosenAppetizerNum) {
-                case 1:
-                    System.out.println("Great choice!\n");
-                    choosenAppetizer = appetizers[0];
-                    break;
-                case 2:
-                    System.out.println("Great choice!\n");
-                    choosenAppetizer = appetizers[1];
-                    break;
-                case 3:
-                    System.out.println("Great choice!\n");
-                    choosenAppetizer = appetizers[2];
-                    break;
-                case 4:
-                    System.out.println("Great choice!\n");
-                    choosenAppetizer = appetizers[3];
-                    break;
-                case 5:
-                    System.out.println("Great choice!\n");
-                    choosenAppetizer = appetizers[4];
-                    break;
-                default:
-                    break;
-            }
-        } while (!check);
-
-        System.out.println("Please choose your main-dish!\n"
+    protected ArrayList<String> Main = new ArrayList<>();
+    protected ArrayList<String> Side = new ArrayList<>();
+    protected ArrayList<String> Drinks = new ArrayList<>();
+    protected ArrayList<String> Dessert = new ArrayList<>();
+    
+    protected HashMap<String, Integer> MainItems = new HashMap<>();
+    protected HashMap<String, Integer> SideItems = new HashMap<>();
+    protected HashMap<String, Integer> DrinkItems = new HashMap<>();
+    protected HashMap<String, Integer> DessertItems = new HashMap<>();
+    public void defineMaps(){
+    MainItems.put("Shawarma",35);
+    MainItems.put("Molokhiya",30);
+    MainItems.put("Kebda",15);
+    MainItems.put("Hawawshi",20);
+    SideItems.put("Salad", 10);
+    SideItems.put("Tameeya", 10);
+    SideItems.put("Bread", 5);
+    SideItems.put("Soup", 20);
+    SideItems.put("Fries", 10);
+    DrinkItems.put("Pepsi", 8);
+    DrinkItems.put("Seven-up", 8);
+    DrinkItems.put("Fanta", 8);
+    DrinkItems.put("Tea", 10);
+    DrinkItems.put("Coffee", 15);
+    DessertItems.put("Baqlawa",25);
+    DessertItems.put("Basboosa",30);
+    DessertItems.put("Balah El-Sham",35);
+    DessertItems.put("Kunafa",40);
+    DessertItems.put("Om-Ali",25);
+}
+    
+        public void orderFood() {
+            System.out.println("Please choose your main-dish!\n"
                 + "MAIN DISHES\n"
-                + "1 for our " + main[0] + "\n"
-                + "2 for our " + main[1] + "\n"
-                + "3 for our " + main[2] + "\n"
-                + "4 for our " + main[3] + "\n"
-                + "5 for our " + main[4] + "\n");
+                + "1 for our " + MainItems.entrySet() + "\n");
         do {
             check = true;
             choosenMainNum = scan.nextInt();
@@ -77,33 +65,9 @@ public class menu {
                 check = false;
                 System.out.println("Invalid option, please enter a valid one!");
             }
-            switch (choosenMainNum) {
-                case 1:
-                    System.out.println("Great choice!\n");
-                    choosenMain = main[0];
-                    break;
-                case 2:
-                    System.out.println("Great choice!\n");
-                    choosenMain = main[1];
-                    break;
-                case 3:
-                    System.out.println("Great choice!\n");
-                    choosenMain = main[2];
-                    break;
-                case 4:
-                    System.out.println("Great choice!\n");
-                    choosenMain = main[3];
-                    break;
-                case 5:
-                    System.out.println("Great choice!\n");
-                    choosenMain = main[4];
-                    break;
-                default:
-                    break;
-            }
         } while (!check);
-    
-     System.out.println("Please choose your side-dish!\n"
+
+        /*System.out.println("Please choose your side-dish!\n"
                 + "SIDE DISHES\n"
                 + "1 for our " + side[0] + "\n"
                 + "2 for our " + side[1] + "\n"
@@ -142,14 +106,14 @@ public class menu {
                     break;
             }
         } while (!check);
-    System.out.println("Please choose a drink!\n"
+        System.out.println("Please choose a drink!\n"
                 + "DRINKS\n"
                 + "1 for our " + drink[0] + "\n"
                 + "2 for our " + drink[1] + "\n"
                 + "3 for our " + drink[2] + "\n"
                 + "4 for our " + drink[3] + "\n"
                 + "5 for our " + drink[4] + "\n");
-    do {
+        do {
             check = true;
             choosenDrinkNum = scan.nextInt();
             if (choosenDrinkNum > 5) {
@@ -181,15 +145,15 @@ public class menu {
                     break;
             }
         } while (!check);
-    
-    System.out.println("Please choose a dessert!\n"
+
+        System.out.println("Please choose a dessert!\n"
                 + "DESSERTS\n"
                 + "1 for our " + dessert[0] + "\n"
                 + "2 for our " + dessert[1] + "\n"
                 + "3 for our " + dessert[2] + "\n"
                 + "4 for our " + dessert[3] + "\n"
                 + "5 for our " + dessert[4] + "\n");
-    do {
+        do {
             check = true;
             choosenDessertNum = scan.nextInt();
             if (choosenDessertNum > 5) {
@@ -220,6 +184,100 @@ public class menu {
                 default:
                     break;
             }
-        } while (!check);
+        } while (!check);*/
     }
+    
+        public void AddMainToMenu() {
+        System.out.println("Enter the name of the new main you want to add.\n");
+        String x;
+        x = scan.nextLine();
+        int y;
+        System.out.println("Enter the price of the item.");
+        y = scan.nextInt();
+        MainItems.put(x, y);
+        System.out.println(MainItems.entrySet() + "\n");
+        File file = new File("D:\\MIU Courses\\Object Oriented Programming\\mainitems.txt");
+            BufferedWriter bf = null;
+
+            try {
+
+                // create new BufferedWriter for the output file
+                bf = new BufferedWriter(new FileWriter(file));
+
+                // iterate map entries
+                for (Map.Entry<String, Integer> entry
+                        : MainItems.entrySet()) {
+
+                    // put key and value separated by a colon
+                    bf.write(entry.getKey() + ":"
+                            + entry.getValue());
+
+                    // new line
+                    bf.newLine();
+                }
+
+                bf.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+
+                try {
+
+                    // always close the writer
+                    bf.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    public void showAddedMainItems(){
+    try {
+            String strcurrentline;
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\menu.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while ((strcurrentline = myobj.readLine()) != null) {
+
+                    System.out.println(strcurrentline);
+                }
+                int data = myobj.read();
+                while (data != -1) {
+                    data = myobj.read();
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("an error occured");
+        }
+    }
+
+    public void readMain() {
+        try {
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\menu.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while (myreader.hasNext()) {
+                    Main.add(myreader.next());
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("an error occured");
+        }
 }
+}
+    
+    /*public void readAddedMainItems() {
+        try {
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\menu.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while (myreader.hasNext()) {
+                    Main.add(myreader.next());
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("an error occured");
+        }
+}
+}*/
