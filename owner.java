@@ -79,8 +79,13 @@ menu testing2 = new menu();
                         +"2 - Edit a branch.\n"
                         +"3 - Remove a branch.\n");
                 int BranchChoice = scan.nextInt();
+                if(BranchChoice == 1){
                 testing.addBranch();
-                testing.writefile();
+                testing.readmenu();
+                testing.writemenu();
+                } else if (BranchChoice == 2){
+                
+                }
         } else if (x==2){
         testing2.orderFood();
         } else if(x==3){
