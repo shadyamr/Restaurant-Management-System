@@ -80,12 +80,17 @@ menu testing2 = new menu();
                         +"3 - Edit a branch.\n"
                         +"4 - Remove a branch.\n");
                 int BranchChoice = scan.nextInt();
+                String y = scan.nextLine();
                 if(BranchChoice == 1){
-                testing.writeBranches();
+                testing.readBranches();
+                testing.readAddedBranches();
                 testing.showbranches();
                 } else if (BranchChoice == 2){
                 testing.addBranch();
+                //testing.writeinitialBranches();
+                testing.writeAddedBranches();
                 testing.readBranches();
+                testing.readAddedBranches();
                 } else if (BranchChoice == 2){
                 
                 }
