@@ -69,7 +69,7 @@ public class branches {
         }
     }
 
-    public void writeinitialBranches() {
+    /*public void writeinitialBranches() {
 try {
             try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\branches.txt",true)) {
                 {
@@ -83,7 +83,7 @@ try {
             System.out.println("An error occurred.");
             ex.printStackTrace();
         }
-    }
+    }*/
 
     public void readBranches() {
         try {
