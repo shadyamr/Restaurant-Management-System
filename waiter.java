@@ -14,7 +14,6 @@ public class waiter {
             }
         } catch (IOException ex) {
             System.out.println("An error occurred." + ex);
-            //ex.printStackTrace();
         }
     }
 
@@ -70,5 +69,25 @@ public class waiter {
         username = "";
         password = "";
         return null;
+    }
+
+    public void GetTheOrder() {
+        try {
+            String strcurrentline;
+            BufferedReader myobj = new BufferedReader(new FileReader("D:\\MIU Courses\\Object Oriented Programming\\order.txt"));
+            try (Scanner myreader = new Scanner(myobj)) {
+                while ((strcurrentline = myobj.readLine()) != null) {
+
+                    System.out.println(strcurrentline);
+                }
+                int data = myobj.read();
+                while (data != -1) {
+                    data = myobj.read();
+                }
+                myobj.close();
+            }
+        } catch (IOException e) {
+            System.out.println("an error occured");
+        }
     }
 }
