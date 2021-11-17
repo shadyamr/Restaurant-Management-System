@@ -2,13 +2,12 @@ package rms;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.lang.NumberFormatException;
 import static java.lang.System.exit;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 
 public class owner {
 
@@ -66,6 +65,45 @@ public class owner {
         password = "";
         return null;
     }
+    
+    public static void editFile(String old_data, String new_data) {
+        File fileToBeModified = new File("D:\\MIU Courses\\Object Oriented Programming\\admin.txt");
+
+        String oldContent = "";
+
+        BufferedReader reader = null;
+
+        FileWriter writer = null;
+
+        try {
+            reader = new BufferedReader(new FileReader(fileToBeModified));
+            String line = reader.readLine();
+
+            while (line != null) {
+                oldContent = oldContent + line + System.lineSeparator();
+
+                line = reader.readLine();
+            }
+
+            String newContent = oldContent.replaceAll(old_data, new_data);
+            writer = new FileWriter(fileToBeModified);
+
+            writer.write(newContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                //Closing the resources
+
+                reader.close();
+
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
     public void chooseOption() throws FileNotFoundException, IOException {
         System.out.println("Please pick what do you want to modify.\n"
@@ -76,7 +114,7 @@ public class owner {
         x = scan.nextInt();
         int MenuChoice;
         if (x == 1) {
-            System.out.println("1- Check the current branches.\n"
+            System.out.println("1 - Check the current branches.\n"
                     + "2 - Add a new branch.\n"
                     + "3 - Edit a branch.\n"
                     + "4 - Remove a branch.\n");
@@ -95,7 +133,7 @@ public class owner {
                 testing.searchBranches(NameOfBranch);
             }
         } else if (x == 2) {
-            System.out.println("1- Check the current menu.\n"
+            System.out.println("1 - Check the current menu.\n"
                     + "2 - Add a new menu item.\n"
                     + "3 - Edit a menu item.\n"
                     + "4 - Remove a menu item.\n");
