@@ -21,8 +21,10 @@ public class menu {
     protected ArrayList<String> Side = new ArrayList<>();
     protected ArrayList<String> Drinks = new ArrayList<>();
     protected ArrayList<String> Dessert = new ArrayList<>();
-tables tableinfo = new tables();
-protected String tabletext;
+    tables tableinfo = new tables();
+    branches branchinfo = new branches();
+    protected int branchnumber;
+    protected String tabletext;
     protected HashMap<String, Integer> MainItems = new HashMap<>();
     protected HashMap<String, Integer> SideItems = new HashMap<>();
     protected HashMap<String, Integer> DrinkItems = new HashMap<>();
@@ -53,20 +55,20 @@ protected String tabletext;
     public void orderFood() {
         System.out.println("Please choose your main-dish! Write only ONE choice per course!\n"
                 + "MAIN DISHES\n"
-                + "1 for our " + MainItems.entrySet() + "\n");
+                + "Our available main dishes " + MainItems.entrySet() + "\n");
         choosenMain = scan.nextLine();
         System.out.println("Please choose your side-dish!\n"
                 + "SIDE DISHES\n"
-                + "1 for our " + SideItems.entrySet() + "\n");
+                + "Our available sides: " + SideItems.entrySet() + "\n");
         choosenSide = scan.nextLine();
         System.out.println("Please choose your drink!\n"
                 + "DRINKS\n"
-                + "1 for our " + DrinkItems.entrySet() + "\n");
+                + "Our available drinks: " + DrinkItems.entrySet() + "\n");
         choosenDrink = scan.nextLine();
 
         System.out.println("Please choose your dessert!\n"
                 + "DESSERTS!\n"
-                + "1 for our " + DessertItems.entrySet() + "\n");
+                + "Our available desserts: " + DessertItems.entrySet() + "\n");
         choosenDessert = scan.nextLine();
         System.out.println("Thanks for ordering, the price of the ordered items = " + (MainItems.get(choosenMain) + SideItems.get(choosenSide) + DrinkItems.get(choosenDrink) + DessertItems.get(choosenDessert)) + "\n");
     }
@@ -81,7 +83,7 @@ protected String tabletext;
         System.out.println("Enter the price of the item.");
         y = scan.nextInt();
         MainItems.put(x, y);
-        System.out.println(MainItems.entrySet() + "\n");
+        //System.out.println(MainItems.entrySet() + "\n");
 
         try {
 
@@ -118,7 +120,7 @@ protected String tabletext;
         System.out.println("Enter the price of the item.");
         y = scan.nextInt();
         SideItems.put(x, y);
-        System.out.println(SideItems.entrySet() + "\n");
+        //System.out.println(SideItems.entrySet() + "\n");
 
         try {
 
@@ -154,7 +156,7 @@ protected String tabletext;
         System.out.println("Enter the price of the item.");
         y = scan.nextInt();
         DrinkItems.put(x, y);
-        System.out.println(DrinkItems.entrySet() + "\n");
+        //System.out.println(DrinkItems.entrySet() + "\n");
 
         try {
 
@@ -190,7 +192,7 @@ protected String tabletext;
         System.out.println("Enter the price of the item.");
         y = scan.nextInt();
         DessertItems.put(x, y);
-        System.out.println(DessertItems.entrySet() + "\n");
+        //System.out.println(DessertItems.entrySet() + "\n");
 
         try {
 
@@ -295,18 +297,23 @@ protected String tabletext;
             System.out.println("an error occured");
         }
     }
-public void WriteTheOrder() {
-    if(tableinfo.tablechoice==1){
-        tabletext = "Yes";
-        } else tabletext = "No";
-try {
-            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\order.txt",true)) {
+
+    public void WriteTheOrder() {
+        if (tableinfo.tablechoice == 1) {
+            tabletext = "Yes";
+        } else {
+            tabletext = "No";
+        }
+
+        try {
+            try (FileWriter mywrite = new FileWriter("D:\\MIU Courses\\Object Oriented Programming\\order.txt", true)) {
                 {
-                 mywrite.write("Main dish: " + choosenMain + "\n"
-                         + "Side dish: " + choosenSide + "\n"
-                         + "Drink: " + choosenDrink + "\n"
-                         + "Dessert: " + choosenDessert + "\n"
-                         +"Smokers Table: " + tabletext + "\n");
+                    mywrite.write("Smokers Table: " + tabletext + "\n"
+                            + "Main dish: " + choosenMain + "\n"
+                            + "Side dish: " + choosenSide + "\n"
+                            + "Drink: " + choosenDrink + "\n"
+                            + "Dessert: " + choosenDessert + "\n"
+                            + "\n");
                 }
                 mywrite.close();
             }
