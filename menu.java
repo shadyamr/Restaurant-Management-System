@@ -16,11 +16,6 @@ public class menu {
     protected String choosenSide;
     protected String choosenDrink;
     protected String choosenDessert;
-    protected boolean check = true;
-    protected ArrayList<String> Main = new ArrayList<>();
-    protected ArrayList<String> Side = new ArrayList<>();
-    protected ArrayList<String> Drinks = new ArrayList<>();
-    protected ArrayList<String> Dessert = new ArrayList<>();
     tables tableinfo = new tables();
     branches branchinfo = new branches();
     protected int branchnumber;
