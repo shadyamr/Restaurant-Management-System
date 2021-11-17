@@ -59,21 +59,4 @@ public class login {
         }
         return false;
     }
-    /*
-    public void setusername(String username) {
-        login.username = username;
-    }
-
-    public void setpassword(String password) {
-        login.password = password;
-    }
-
-    public String getusername() {
-        return username;
-    }
-
-    public String getpassword() {
-        return password;
-    }
-     */
 }
