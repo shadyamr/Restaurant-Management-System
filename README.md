@@ -8,6 +8,7 @@ This is our team's project for Fall 2021 - CSC240/SWE211 - Object Oriented Progr
 * [x] File System
 * [x] Branches
 * [x] Menu
+* [x] Payment Method 
 
 # Modules
    - **Owner module:**
