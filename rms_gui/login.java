@@ -31,14 +31,17 @@ public class login extends javax.swing.JFrame implements MouseListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        componentResizerUtil1 = new com.k33ptoo.utils.ComponentResizerUtil();
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         username_field = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        kButton2 = new com.k33ptoo.components.KButton();
+        signup = new com.k33ptoo.components.KButton();
         win_exit = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        login = new com.k33ptoo.components.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -93,16 +96,18 @@ public class login extends javax.swing.JFrame implements MouseListener {
         jLabel3.setText("Username");
         kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 90, -1));
 
-        kButton2.setText("Sign In");
-        kButton2.setkBorderRadius(40);
-        kButton2.setkHoverStartColor(new java.awt.Color(0, 204, 204));
-        kButton2.setkPressedColor(new java.awt.Color(52, 152, 219));
-        kButton2.addActionListener(new java.awt.event.ActionListener() {
+        signup.setText("Sign Up");
+        signup.setkBorderRadius(40);
+        signup.setkEndColor(new java.awt.Color(0, 153, 153));
+        signup.setkHoverStartColor(new java.awt.Color(0, 204, 204));
+        signup.setkPressedColor(new java.awt.Color(52, 152, 219));
+        signup.setkStartColor(new java.awt.Color(0, 205, 0));
+        signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton2ActionPerformed(evt);
+                signupActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(kButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        kGradientPanel1.add(signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, -1, -1));
 
         win_exit.setBackground(new java.awt.Color(0, 153, 204));
         win_exit.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -114,6 +119,50 @@ public class login extends javax.swing.JFrame implements MouseListener {
             }
         });
         kGradientPanel1.add(win_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, -10, 30, 90));
+
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("customer");
+        jRadioButton1.setOpaque(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
+
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton3.setText("manager");
+        jRadioButton3.setOpaque(false);
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
+
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton4.setText("staff");
+        jRadioButton4.setOpaque(false);
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
+
+        login.setText("Login");
+        login.setkBorderRadius(40);
+        login.setkHoverStartColor(new java.awt.Color(0, 204, 204));
+        login.setkPressedColor(new java.awt.Color(52, 152, 219));
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
 
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1208, 616));
 
@@ -133,14 +182,30 @@ public class login extends javax.swing.JFrame implements MouseListener {
 
     }//GEN-LAST:event_kGradientPanel1MousePressed
 
-    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton2ActionPerformed
+    }//GEN-LAST:event_signupActionPerformed
 
     private void win_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_win_exitMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_win_exitMouseClicked
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,12 +243,15 @@ public class login extends javax.swing.JFrame implements MouseListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.k33ptoo.utils.ComponentResizerUtil componentResizerUtil1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
-    private com.k33ptoo.components.KButton kButton2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private com.k33ptoo.components.KButton login;
+    private com.k33ptoo.components.KButton signup;
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel win_exit;
     // End of variables declaration//GEN-END:variables
